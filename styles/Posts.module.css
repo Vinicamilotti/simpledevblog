@@ -1,3 +1,4 @@
 .postConteiner{
-    width: 800px;
+    width: 40%;
+    max-width: 800px;
 }
