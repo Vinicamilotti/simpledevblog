@@ -14,3 +14,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.Conteiner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body{
+  background-color: black;
+  color: antiquewhite;
+}
