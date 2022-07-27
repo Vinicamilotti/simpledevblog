@@ -5,6 +5,7 @@ import path from "path";
 import grayMatter from "gray-matter";
 import Head from "next/head";
 import Posts from "../src/components/posts";
+import Link from "../src/components/link";
 
 const postsDirectory = path.join(process.cwd(), "pages/posts");
 
@@ -46,6 +47,7 @@ export default function Slug({ content, date, title, author }) {
       <Head>
         <title>{title} - DevBlog</title>
       </Head>
+      <Link href="/">Retornar aos posts</Link>
       <Posts
         content={content}
         date={date}
