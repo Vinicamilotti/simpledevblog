@@ -1,0 +1,31 @@
+---
+title: Task Tracker - Dia 1
+date: 23/07/2022
+desc: Primeiros passos de desenvolvimento do Task Tracker
+author: Vinicius Camilotti
+---
+
+# Objetivos alcançados
+
+[x] Inicializar o projeto
+[x] Criar e integrar o banco de dados Firebase (Real time Firestore)
+[] Criar uma API capaz de registrar e selecionar dados do banco de dados
+[] Utilizar metodos de autenticação para registro e consulta de dados pertinentes às contas logadas com chaves de API proprias
+[] Implementar atuomação de funções por meio das funções do Firebase
+[] Implementar tokens de autenticação pelo navegador
+[] Criar metodos de consulta e registro de dados amigaveis para usários finais
+[] Polir o projeto com interfaces graficas de facil usabilidade
+
+# Primeiros passos
+
+    Este projeto será criado usando nextJS para front e backend em nodeJS e firestore para armazanamento e persistencia de dados. Naturalmente o primeiro passo é inicializar o Next app com o comando Yarn
+
+'''
+yarn create next-app
+'''
+
+## criação do projeto na firebase
+
+    O primeiro passo é criar um novo projeto da Firebase e um novo aplicativo Web na plataforma. AO finalizar o processo as chaves para utilização dos recursos Firebase serão disponibilizadas pela Google. Por questões de segurança aloquei essas informações em um arquivo .env.local, que posteriormente será acessado pelo Next atraves do metodo process.env
+
+    Com o projeto criado podemos agora ativar a instancia de Firestore em tempo real.
