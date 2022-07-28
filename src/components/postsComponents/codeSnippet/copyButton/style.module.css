@@ -1,0 +1,14 @@
+.button{
+    color: antiquewhite;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: right;
+}
+.button:active{
+    color: rgb(255, 215, 162);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: right;
+}
