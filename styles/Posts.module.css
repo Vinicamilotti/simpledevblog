@@ -1,4 +1,12 @@
 .postConteiner{
-    width: 60vw;
+    width: 40vw;
+    height: 100vh;
     max-width: 800px;
+    margin: auto;
+    text-align: justify;
+    margin-top: 10px;
+}
+.post {
+    display: flex;
+    justify-content: center;
 }

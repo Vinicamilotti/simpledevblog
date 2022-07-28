@@ -1,18 +1,24 @@
 import { MDXRemote } from "next-mdx-remote";
 import style from "../../../styles/Posts.module.css";
-import Image from "next/image";
+import CodeSnippet from "../postsComponents/codeSnippet";
+import RoundedImg from "../postsComponents/roudedImg";
+import CheckList from "../postsComponents/checkList";
+const components = { CodeSnippet, RoundedImg, CheckList };
 export default function Posts({ title, author, date, content }) {
-  const components = { Image };
   console.log(title);
   return (
     <>
       <div className={style.postConteiner}>
-        <h1 className={style.postTitle}>{title}</h1>
-        <h2 className={style.postAuthor}>por: {author}</h2>
-        <label className={style.postDate}>{date}</label>
-        <article className={style.postContent}>
-          <MDXRemote {...content} components={components} />
-        </article>
+        <div className={style.head}>
+          <h1 className={style.postTitle}>{title}</h1>
+          <h2 className={style.postAuthor}>por: {author}</h2>
+          <label className={style.postDate}>{date}</label>
+        </div>
+        <div className={style.post}>
+          <article className={style.postContent}>
+            <MDXRemote {...content} components={components} />
+          </article>
+        </div>
       </div>
     </>
   );

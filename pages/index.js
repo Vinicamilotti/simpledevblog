@@ -28,7 +28,7 @@ export default function Home({ frontMatter, hrefs }) {
 
       <ul className={style.postConteiner}>
         {frontMatter.map((item, index) => {
-          return <Card key={item} item={item} path={hrefs[index]} />;
+          return <Card key={index} item={item} path={hrefs[index]} />;
         })}
       </ul>
     </div>

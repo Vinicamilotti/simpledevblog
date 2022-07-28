@@ -1,0 +1,7 @@
+.rounded {
+    border-radius: 360px;
+}
+.imgConteiner{
+    display: flex;
+    justify-content: center;
+}

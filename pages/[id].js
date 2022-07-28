@@ -45,7 +45,7 @@ export default function Slug({ content, date, title, author }) {
   return (
     <>
       <Head>
-        <title>{title} - DevBlog</title>
+        <title>{title}</title>
       </Head>
       <Link href="/">Retornar aos posts</Link>
       <Posts
