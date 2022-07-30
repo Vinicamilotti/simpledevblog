@@ -1,36 +1,24 @@
-import fsPromises from "fs/promises";
-import fs from "fs";
-import { serialize } from "next-mdx-remote/serialize";
-import path from "path";
-import grayMatter from "gray-matter";
 import Head from "next/head";
 import Posts from "../src/components/posts";
 import Link from "../src/components/link";
-
-const postsDirectory = path.join(process.cwd(), "pages/posts");
+import read from "../src/utils/scripts/mdx-frontMatter/postReader";
+import getAllPostIds from "../src/utils/scripts/mdx-frontMatter/postPaths";
+import Comment from "../src/utils/models/comment";
 
 export async function getStaticProps({ params }) {
-  const filePath = path.join(postsDirectory, `${params.id}.mdx`);
-  const file = await fsPromises.readFile(filePath);
-  const matter = grayMatter(file);
-  const source = await serialize(matter.content);
+  const comment = new Comment();
+  const postComments = await comment.getComments(params.id);
+  const content = await read({ params });
   return {
     props: {
-      title: matter.data.title,
-      author: matter.data.author,
-      date: matter.data.date,
-      content: source,
+      title: content.title,
+      author: content.author,
+      date: content.date,
+      content: content.content,
+      id: params.id,
+      postComments: postComments,
     },
   };
-}
-
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: { id: fileName.replace(/\.mdx$/, "") },
-    };
-  });
 }
 
 export function getStaticPaths() {
@@ -41,7 +29,14 @@ export function getStaticPaths() {
   };
 }
 
-export default function Slug({ content, date, title, author }) {
+export default function Slug({
+  content,
+  date,
+  title,
+  author,
+  id,
+  postComments,
+}) {
   return (
     <>
       <Head>
@@ -53,6 +48,8 @@ export default function Slug({ content, date, title, author }) {
         date={date}
         author={author}
         title={title}
+        id={id}
+        comments={postComments}
       ></Posts>
     </>
   );

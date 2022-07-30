@@ -1,7 +1,6 @@
 import style from "../styles/Home.module.css";
 import Card from "../src/components/cards";
-import read from "../src/utils/postListReader";
-
+import read from "../src/utils/scripts/mdx-frontMatter/postListReader";
 export async function getStaticProps() {
   const posts = await read();
   const frontMatter = posts.postData.map((data) => {

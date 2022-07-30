@@ -3,9 +3,11 @@ import style from "../../../styles/Posts.module.css";
 import CodeSnippet from "../postsComponents/codeSnippet";
 import RoundedImg from "../postsComponents/roudedImg";
 import CheckList from "../postsComponents/checkList";
+import CommentBox from "../comments/commentBox";
+import CommentList from "../comments/commentList";
 const components = { CodeSnippet, RoundedImg, CheckList };
-export default function Posts({ title, author, date, content }) {
-  console.log(title);
+export default function Posts({ title, author, date, content, id, comments }) {
+  console.log(id);
   return (
     <>
       <div className={style.postConteiner}>
@@ -19,6 +21,10 @@ export default function Posts({ title, author, date, content }) {
             <MDXRemote {...content} components={components} />
           </article>
         </div>
+        <hr></hr>
+        <h2>Comentários</h2>
+        <CommentList comments={comments} />
+        <CommentBox pageId={id}></CommentBox>
       </div>
     </>
   );

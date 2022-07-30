@@ -51,8 +51,3 @@
     display: table-cell;
     width: 10%;
 }
-
-.copy button {
-    align-self: right;
-    background-color: none;
-}
