@@ -6,7 +6,7 @@ import CheckList from "../postsComponents/checkList";
 import CommentBox from "../comments/commentBox";
 import CommentList from "../comments/commentList";
 const components = { CodeSnippet, RoundedImg, CheckList };
-export default function Posts({ title, author, date, content, id, comments }) {
+export default function Posts({ title, author, date, content, id }) {
   console.log(id);
   return (
     <>
@@ -23,7 +23,7 @@ export default function Posts({ title, author, date, content, id, comments }) {
         </div>
         <hr></hr>
         <h2>Comentários</h2>
-        <CommentList comments={comments} />
+        <CommentList pageId={id} />
         <CommentBox pageId={id}></CommentBox>
       </div>
     </>

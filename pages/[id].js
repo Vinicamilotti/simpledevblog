@@ -3,11 +3,8 @@ import Posts from "../src/components/posts";
 import Link from "../src/components/link";
 import read from "../src/utils/scripts/mdx-frontMatter/postReader";
 import getAllPostIds from "../src/utils/scripts/mdx-frontMatter/postPaths";
-import Comment from "../src/utils/models/comment";
 
 export async function getStaticProps({ params }) {
-  const comment = new Comment();
-  const postComments = await comment.getComments(params.id);
   const content = await read({ params });
   return {
     props: {
@@ -16,7 +13,6 @@ export async function getStaticProps({ params }) {
       date: content.date,
       content: content.content,
       id: params.id,
-      postComments: postComments,
     },
   };
 }
@@ -49,7 +45,6 @@ export default function Slug({
         author={author}
         title={title}
         id={id}
-        comments={postComments}
       ></Posts>
     </>
   );

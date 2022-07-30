@@ -1,5 +1,15 @@
 import style from "./style.module.css";
-export default function CommentList({ comments }) {
+import { useEffect, useState } from "react";
+export default function CommentList({ pageId }) {
+  const [comments, setComments] = useState([""]);
+  useEffect(() => {
+    fetch(`/api/${pageId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setComments(data);
+      });
+  }, [pageId]);
+  console.log(comments);
   return (
     <div className={style.commentConteiner}>
       <ul className={style.commentList}>

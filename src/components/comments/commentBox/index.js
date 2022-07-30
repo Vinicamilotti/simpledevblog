@@ -10,7 +10,7 @@ export default function CommentBox({ pageId }) {
     const data = { post: pageId, name: name, comment: comment };
     console.log(data);
     await axios.post("/api/newpost", data);
-    //window.location.reload(false);
+    window.location.reload(false);
   };
   return (
     <div className={style.formConteiner}>
